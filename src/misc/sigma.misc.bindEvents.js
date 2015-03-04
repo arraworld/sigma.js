@@ -189,7 +189,7 @@
               modifiedX,
               modifiedY) > target[prefix + 'size']
           ) {
-            if (edge.type == 'curve' || edge.type == 'curvedArrow') {
+            if (edge.type == 'curve' || edge.type == 'curvedArrow' || edge.type == 'curvedBlock') {
               if (source.id === target.id) {
                 cp = sigma.utils.getSelfLoopControlPoints(
                   source[prefix + 'x'],
