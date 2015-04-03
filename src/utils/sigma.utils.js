@@ -405,11 +405,15 @@
     // http://stackoverflow.com/a/328122
     var crossProduct = Math.abs((y - y1) * (x2 - x1) - (x - x1) * (y2 - y1)),
         d = sigma.utils.getDistance(x1, y1, x2, y2),
-        nCrossProduct = crossProduct / d; // normalized cross product
-
+        nCrossProduct = crossProduct / d, // normalized cross product
+		minx = x - epsilon / 2,
+		maxx = x + epsilon / 2,
+		miny = y - epsilon / 2,
+		maxy = y + epsilon / 2;
+	
     return (nCrossProduct < epsilon &&
-     Math.min(x1, x2) <= x && x <= Math.max(x1, x2) &&
-     Math.min(y1, y2) <= y && y <= Math.max(y1, y2));
+     Math.min(x1, x2) <= maxx && minx <= Math.max(x1, x2) &&
+     Math.min(y1, y2) <= maxy && miny <= Math.max(y1, y2));
   };
 
   /**

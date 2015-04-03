@@ -234,7 +234,49 @@
                   insertEdge(selected, edge);
                 }
               }
-            } else if (
+            } else if(edge.type == 'corner'){
+				if(edge.curveDirection == 'tgt'){
+					if(sigma.utils.isPointOnSegment(
+						modifiedX,
+						modifiedY,
+						source[prefix + 'x'],
+						source[prefix + 'y'],
+						source[prefix + 'x'],
+						target[prefix + 'y'],
+						Math.max(s, maxEpsilon)
+					) || sigma.utils.isPointOnSegment(
+						modifiedX,
+						modifiedY,
+						source[prefix + 'x'],
+						target[prefix + 'y'],
+						target[prefix + 'x'],
+						target[prefix + 'y'],
+						Math.max(s, maxEpsilon)
+					)) {
+						insertEdge(selected, edge);
+					}
+				} else{
+					if(sigma.utils.isPointOnSegment(
+						modifiedX,
+						modifiedY,
+						source[prefix + 'x'],
+						source[prefix + 'y'],
+						target[prefix + 'x'],
+						source[prefix + 'y'],
+						Math.max(s, maxEpsilon)
+					) || sigma.utils.isPointOnSegment(
+						modifiedX,
+						modifiedY,
+						target[prefix + 'x'],
+						source[prefix + 'y'],
+						target[prefix + 'x'],
+						target[prefix + 'y'],
+						Math.max(s, maxEpsilon)
+					)) {
+						insertEdge(selected, edge);
+					}
+				}
+			} else if (
                 sigma.utils.isPointOnSegment(
                 modifiedX,
                 modifiedY,
