@@ -31,7 +31,8 @@
         n = this.graph.nodes(),
         e = this.graph.edges(),
         settings = this.settings.embedObjects(options || {}),
-        bounds = settings('bounds') || sigma.utils.getBoundaries(
+        bounds = settings('bounds') || sigma.utils.getBoundaries.call(
+		  this,
           this.graph,
           readPrefix,
           true
@@ -174,6 +175,13 @@
       minY = Math.min(n[i][prefix + 'y'], minY);
     }
 
+	if(doEdges && this.settings('fixedScale').length === 4){
+		minX = this.settings('fixedScale')[0];
+		maxX = this.settings('fixedScale')[1];
+		minY = this.settings('fixedScale')[2];
+		maxY = this.settings('fixedScale')[3];
+	}
+	
     weightMax = weightMax || 1;
     sizeMax = sizeMax || 1;
 

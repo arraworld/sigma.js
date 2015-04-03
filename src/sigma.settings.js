@@ -143,7 +143,9 @@
     maxEdgeSize: 1,
     minNodeSize: 1,
     maxNodeSize: 8,
-
+	
+	//{array} If all 4 parameters are set, the width and height bounds of the graph will be fixed. [minX, maxX, minY, maxY] 
+	fixedScale: [],
 
 
 

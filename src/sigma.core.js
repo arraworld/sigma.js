@@ -523,7 +523,8 @@
 
       if (!options.skipIndexation) {
         // Find graph boundaries:
-        bounds = sigma.utils.getBoundaries(
+        bounds = sigma.utils.getBoundaries.call(
+		  this,
           this.graph,
           c.readPrefix
         );
