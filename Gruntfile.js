@@ -71,6 +71,7 @@ module.exports = function(grunt) {
   var plugins = [
     'exporters.svg',
     'layout.forceAtlas2',
+    'parsers.cypher',
     'parsers.gexf',
     'parsers.json',
     'pathfinding.astar',
@@ -82,6 +83,7 @@ module.exports = function(grunt) {
     'renderers.customEdgeShapes',
     'renderers.customShapes',
     'renderers.edgeLabels',
+    'renderers.parallelEdges',
     'renderers.snapshot',
 	'renderers.blockEdges',
     'statistics.HITS'
